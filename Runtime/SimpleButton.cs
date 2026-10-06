@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -12,9 +11,6 @@ namespace UINavigation
     /// </summary>
     public class SimpleButton : Selectable, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler
     {
-
-        [SerializeField]
-        private TextMeshProUGUI _textComp;
 
         /// <summary>
         /// Event that represent the click of the button
@@ -28,12 +24,6 @@ namespace UINavigation
         [field: SerializeField]
         public UnityEvent OnNonInteractClick { get; set; }
 
-        public string Text
-        {
-            get => _textComp.text;
-            set => _textComp.text = value;
-        }
-
         protected Image _image;
         protected override Image Image
         {
@@ -46,7 +36,6 @@ namespace UINavigation
             }
         }
 
-
         protected override void Awake()
         {
             base.Awake();
@@ -55,7 +44,6 @@ namespace UINavigation
 
         public void OnPointerExit(PointerEventData eventData)
         {
-
             Deselect();
         }
 

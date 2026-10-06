@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,20 +6,8 @@ namespace UINavigation
     public class SimpleSlider : Selectable
     {
         [SerializeField] private Slider _slider;
-        [SerializeField] private TextMeshProUGUI _label, _valueLabel;
 
         protected override Image Image => _slider.image;
-
-        protected override void Awake()
-        {
-            _valueLabel.text = _slider.value + "";
-            _slider.onValueChanged.AddListener((v) =>
-            {
-                _valueLabel.text = v + "";
-            });
-
-            base.Awake();
-        }
 
         void Update()
         {

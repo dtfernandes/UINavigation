@@ -20,7 +20,7 @@ namespace UINavigation
 
         private IHighlighter[] _highlighter;
 
-        private bool _active;
+        [SerializeField] private bool _active;
 
         /// <summary>
         /// Is the button active and ready to use
