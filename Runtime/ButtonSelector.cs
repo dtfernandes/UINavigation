@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public class ButtonSelector : MonoBehaviour
     { 

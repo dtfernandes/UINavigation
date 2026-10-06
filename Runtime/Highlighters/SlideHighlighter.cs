@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public class SlideHighlighter : MonoBehaviour, IHighlighter
     {

@@ -1,7 +1,9 @@
 {
     "name": "dtfernandes.uinavigation.editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "dtfernandes.uinavigation.runtime"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

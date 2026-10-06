@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public class SimpleSlider : Selectable
     {

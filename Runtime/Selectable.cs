@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public abstract class Selectable : MonoBehaviour
     {
         public event System.Action OnSelection;
 
         [SerializeField]
+        [HideInInspector]
         private Sprite _highlightSprite, _defaultSprite;
 
         [SerializeField]
+        [HideInInspector]
         private Color _highlightColor, _defaultColor;
 
         [SerializeField] private HighlightMode _highlightMode;

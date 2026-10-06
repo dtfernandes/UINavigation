@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
 
     /// <summary>

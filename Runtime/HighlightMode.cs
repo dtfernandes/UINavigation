@@ -1,5 +1,5 @@
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public enum HighlightMode
     {

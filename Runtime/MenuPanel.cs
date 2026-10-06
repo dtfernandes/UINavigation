@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     //Class that represents a focusable UI panel
     public abstract class MenuPanel : MonoBehaviour

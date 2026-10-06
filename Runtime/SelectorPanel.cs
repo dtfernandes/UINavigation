@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     /// <summary>
     /// Class responsible for handling menu panels that use Button Selectors

@@ -1,4 +1,4 @@
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public interface IHighlighter
 {

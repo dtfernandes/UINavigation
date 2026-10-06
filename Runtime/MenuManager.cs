@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
 
     /// <summary>

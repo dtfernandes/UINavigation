@@ -1,7 +1,7 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace UINavigation
+namespace dtfernandes.UINavigation
 {
     public class SimpleMenuPanel : SelectorPanel
     {
