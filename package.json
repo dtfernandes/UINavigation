@@ -1,10 +1,17 @@
 {
- "name": "com.dtfernandes.uinavigation",
+  "name": "com.dtfernandes.uinavigation",
   "version": "0.0.1",
   "displayName": "UI Navigation",
   "description": "Package that contains various methods and components to construct the UI of a game",
   "unity": "6000.1",
   "author": {
     "name": "Daniel Fernandes"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Template Components",
+      "description": "Contains a couple of different UI elements that use the package",
+      "path": "Samples/ExampleComponents"
+    }
+  ]
 }
