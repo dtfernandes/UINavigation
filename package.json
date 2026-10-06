@@ -1,0 +1,10 @@
+{
+ "name": "com.dtfernandes.uinavigation",
+  "version": "0.0.1",
+  "displayName": "UI Navigation",
+  "description": "Package that contains various methods and components to construct the UI of a game",
+  "unity": "6000.1",
+  "author": {
+    "name": "Daniel Fernandes"
+  }
+}
