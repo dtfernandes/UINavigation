@@ -15,14 +15,14 @@ namespace dtfernandes.UINavigation
         [HideInInspector]
         private Color _highlightColor, _defaultColor;
 
-        [SerializeField] private HighlightMode _highlightMode;
+        [SerializeField][HideInInspector] private HighlightMode _highlightMode;
 
         //Image component of the button
         protected abstract Image Image { get; }
 
         private IHighlighter[] _highlighter;
 
-        [SerializeField] private bool _active;
+        [HideInInspector][SerializeField] private bool _active;
 
         /// <summary>
         /// Is the button active and ready to use
@@ -38,6 +38,7 @@ namespace dtfernandes.UINavigation
             }
         }
 
+        [HideInInspector]
         [SerializeField]
         private bool _interactable = true;
         /// <summary>

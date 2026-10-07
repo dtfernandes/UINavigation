@@ -2,15 +2,19 @@ using UnityEditor;
 using dtfernandes.UINavigation;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 [CustomEditor(typeof(Selectable), editorForChildClasses: true)]
-public class SelectableDrawer : Editor
+public class SelectableEditor : Editor
 {
     SerializedProperty _highlightMode;
     SerializedProperty _highlightSprite, _defaultSprite;
     SerializedProperty _highlightColor, _defaultColor;
+    SerializedProperty _active, _interactable;
 
     private List<Component> _highlighers;
+
+    List<SerializedProperty> _defaultProps;
 
     void OnEnable()
     {
@@ -22,7 +26,26 @@ public class SelectableDrawer : Editor
         _highlightColor = serializedObject.FindProperty("_highlightColor");
         _defaultColor = serializedObject.FindProperty("_defaultColor");
 
+        _active = serializedObject.FindProperty("_active");
+        _interactable = serializedObject.FindProperty("_interactable");
+
         FillHighlighters();
+
+        _defaultProps = new List<SerializedProperty> { };
+        SerializedProperty prop = serializedObject.GetIterator();
+        prop.NextVisible(true);
+        while (true)
+        {
+            _defaultProps.Add(prop.Copy());
+
+            bool doReturn = prop.NextVisible(false);
+
+            if (!doReturn) break;
+        }
+        // foreach(SerializedProperty sp in serializedObject)
+        // {
+        //     Debug.Log("Test: " + sp.Name);
+        // }
     }
 
     private void FillHighlighters()
@@ -44,6 +67,8 @@ public class SelectableDrawer : Editor
     {
         serializedObject.Update();
 
+        EditorGUILayout.PropertyField(_defaultProps[0]);
+
         int prevMode = _highlightMode.enumValueIndex;
 
         // Top line
@@ -60,6 +85,7 @@ public class SelectableDrawer : Editor
         EditorGUILayout.Space();
 
         EditorGUILayout.PropertyField(_highlightMode);
+        EditorGUILayout.Space();
 
         switch (_highlightMode.enumValueIndex)
         {
@@ -81,9 +107,9 @@ public class SelectableDrawer : Editor
                     FillHighlighters();
                 }
 
-                if (_highlighers == null)
+                if (_highlighers.Count == 0)
                 {
-                    EditorGUILayout.HelpBox("it seems there's been a problem", MessageType.Info);
+                    EditorGUILayout.HelpBox("This object has no IHighlighter components", MessageType.Info);
                     break;
                 }
 
@@ -105,7 +131,27 @@ public class SelectableDrawer : Editor
         // Bottom line
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
+        EditorGUILayout.LabelField("State", headerStyle, GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+
+        EditorGUILayout.PropertyField(_active);
+        EditorGUILayout.PropertyField(_interactable);
+
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
+
+        EditorGUILayout.LabelField("Child Specific", headerStyle, GUILayout.ExpandWidth(true));
+        EditorGUILayout.Space();
+
+        for (int i = 1; i < _defaultProps.Count; i++)
+        {
+            SerializedProperty prop = _defaultProps[i];
+            EditorGUILayout.PropertyField(prop);
+        }
+
         serializedObject.ApplyModifiedProperties();
+
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
     }
 
 }
