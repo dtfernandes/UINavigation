@@ -97,10 +97,10 @@ namespace dtfernandes.UINavigation
             {
                 EnterHighlight();
             }
-            else if (!_interactable)
-            {
-                Image.color = new Color(0.5f, 0.29f, 0.29f, Image.color.a);
-            }
+            // else if (!_interactable)
+            // {
+            //     Image.color = new Color(0.5f, 0.29f, 0.29f, Image.color.a);
+            // }
             else
             {
                 ExitHighlight();
