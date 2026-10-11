@@ -8,8 +8,8 @@ using System.Diagnostics;
 public class SelectableEditor : Editor
 {
     SerializedProperty _highlightMode;
-    SerializedProperty _highlightSprite, _defaultSprite;
-    SerializedProperty _highlightColor, _defaultColor;
+    SerializedProperty _highlightSprite, _defaultSprite, _disabledSprite;
+    SerializedProperty _highlightColor, _defaultColor, _disabledColor;
     SerializedProperty _active, _interactable;
 
     private List<Component> _highlighers;
@@ -22,9 +22,11 @@ public class SelectableEditor : Editor
 
         _highlightSprite = serializedObject.FindProperty("_highlightSprite");
         _defaultSprite = serializedObject.FindProperty("_defaultSprite");
+        _disabledSprite = serializedObject.FindProperty("_disabledSprite");
 
         _highlightColor = serializedObject.FindProperty("_highlightColor");
         _defaultColor = serializedObject.FindProperty("_defaultColor");
+        _disabledColor = serializedObject.FindProperty("_disabledColor");
 
         _active = serializedObject.FindProperty("_active");
         _interactable = serializedObject.FindProperty("_interactable");
@@ -93,11 +95,13 @@ public class SelectableEditor : Editor
             case 0:
                 EditorGUILayout.PropertyField(_defaultColor);
                 EditorGUILayout.PropertyField(_highlightColor);
+                EditorGUILayout.PropertyField(_disabledColor);
                 break;
             // Image
             case 1:
                 EditorGUILayout.PropertyField(_defaultSprite);
                 EditorGUILayout.PropertyField(_highlightSprite);
+                 EditorGUILayout.PropertyField(_disabledSprite);
                 break;
             // Script
             case 2:

@@ -9,11 +9,11 @@ namespace dtfernandes.UINavigation
 
         [SerializeField]
         [HideInInspector]
-        private Sprite _highlightSprite, _defaultSprite;
+        private Sprite _highlightSprite, _defaultSprite, _disabledSprite;
 
         [SerializeField]
         [HideInInspector]
-        private Color _highlightColor, _defaultColor;
+        private Color _highlightColor, _defaultColor, _disabledColor;
 
         [SerializeField][HideInInspector] private HighlightMode _highlightMode;
 
@@ -89,11 +89,7 @@ namespace dtfernandes.UINavigation
             //Setup the inactive disaply
             if (!_active)
             {
-                Image.color = new Color(0.3f, 0.3f, 0.3f, Image.color.a);
-            }
-            else
-            {
-                Image.color = _defaultColor;
+                SetDisabled();
             }
 
             //Setup other styles
@@ -111,6 +107,31 @@ namespace dtfernandes.UINavigation
             }
         }
 
+        private void SetDisabled()
+        {
+            switch (_highlightMode)
+            {
+                case HighlightMode.Color:
+                    Image.color = _disabledColor;
+                    break;
+                case HighlightMode.Sprite:
+                    Image.sprite = _disabledSprite;
+                    break;
+                case HighlightMode.Script:
+                    if (_highlighter != null)
+                    {
+                        if (_highlighter.Length == 0) break;
+                        foreach (IHighlighter highlight in _highlighter)
+                        {
+                            if (highlight is ISelectableResponse)
+                            {
+                                (highlight as ISelectableResponse).SetDisabled();
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
 
         private void EnterHighlight()
         {
