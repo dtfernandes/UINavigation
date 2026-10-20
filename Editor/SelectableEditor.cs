@@ -1,3 +1,5 @@
+
+#if UNITY_EDITOR
 using UnityEditor;
 using dtfernandes.UINavigation;
 using UnityEngine;
@@ -159,3 +161,5 @@ public class SelectableEditor : Editor
     }
 
 }
+
+#endif
