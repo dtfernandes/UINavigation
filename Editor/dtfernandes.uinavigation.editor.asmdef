@@ -1,5 +1,5 @@
 {
-    "name": "dtfernandes.uinavigation.editor",
+    "name": "dtfernandes.uinavigation.Editor",
     "rootNamespace": "",
     "references": [
         "dtfernandes.uinavigation.runtime"
