@@ -4,13 +4,11 @@
     "references": [
         "dtfernandes.uinavigation.runtime"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "compilePlatform": {
+        "includes": ["Editor"]
+    },
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+    "overrideReferences": false,
+    "precompiledReferences": []
 }
